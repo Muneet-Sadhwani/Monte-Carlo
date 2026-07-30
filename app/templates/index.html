@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Monte Carlo Option Pricer</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <header class="app-header">
+      <div>
+        <h1>Monte Carlo Option Pricer</h1>
+        <p>Risk & Derivatives Simulation Platform</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Scenario</h2>
+      <select id="scenario">
+        <option value="european_call">European Call Option</option>
+        <option value="asian_call">Asian Call Option</option>
+        <option value="var">Value at Risk (VaR)</option>
+        <option value="correlated_var">Correlated Portfolio VaR</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <h2>Input Parameters</h2>
+
+      <div class="grid">
+        <div>
+          <label>Spot Price (S₀)</label>
+          <input id="S0" value="100" />
+        </div>
+
+        <div>
+          <label>Strike (K)</label>
+          <input id="K" value="110" />
+        </div>
+
+        <div>
+          <label>Risk-Free Rate (r)</label>
+          <input id="r" value="0.05" />
+        </div>
+
+        <div>
+          <label>Volatility (σ)</label>
+          <input id="sigma" value="0.2" />
+        </div>
+
+        <div>
+          <label>Time to Maturity (T)</label>
+          <input id="T" value="1" />
+        </div>
+
+        <div>
+          <label>Monte Carlo Samples</label>
+          <input id="n" value="100000" />
+        </div>
+
+        <div>
+          <label>Asset 1 Price (S₀₁)</label>
+          <input id="S01" value="100" />
+        </div>
+
+        <div>
+          <label>Asset 2 Price (S₀₂)</label>
+          <input id="S02" value="100" />
+        </div>
+
+        <div>
+          <label>Correlation (ρ)</label>
+          <input id="rho" value="0.5" />
+        </div>
+
+        <div>
+          <label>Weight Asset 1 (w₁)</label>
+          <input id="w1" value="0.5" />
+        </div>
+
+        <div>
+          <label>Weight Asset 2 (w₂)</label>
+          <input id="w2" value="0.5" />
+        </div>
+      </div>
+
+      <div class="options">
+        <label class="checkbox">
+          <input type="checkbox" id="anti" />
+          <span>Use Antithetic Variates</span>
+        </label>
+      </div>
+
+      <button class="primary-btn" onclick="runPricing()">
+        Run Simulation
+      </button>
+    </section>
+
+
+
+    <section class="card">
+      <h2>Results</h2>
+      <div class="results">
+        <div class="result-box">
+          <span>Option / Risk Value</span>
+          <strong id="price">—</strong>
+        </div>
+        <div class="result-box">
+          <span>Standard Error</span>
+          <strong id="se">—</strong>
+        </div>
+        <div class="result-box">
+          <span>95% CI (Low)</span>
+          <strong id="ciLow">—</strong>
+        </div>
+        <div class="result-box">
+          <span>95% CI (High)</span>
+          <strong id="ciHigh">—</strong>
+        </div>
+        <div class="result-box">
+          <span>Runtime (ms)</span>
+          <strong id="runtime">—</strong>
+        </div>
+        <div class="result-box">
+          <span>Black–Scholes Price</span>
+          <strong id="bsPrice">—</strong>
+        </div>
+        <div class="result-box">
+          <span>|MC − BS| Error</span>
+          <strong id="bsError">—</strong>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card" id="education">
+      <h2>Explanation</h2>
+      <div id="eduContent"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Convergence Analysis</h2>
+        <button class="secondary-btn" onclick="runSweep()">
+          Run Convergence
+        </button>
+      </div>
+      <canvas id="convChart"></canvas>
+    </section>
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+
+</html>

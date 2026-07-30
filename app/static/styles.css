@@ -1,0 +1,173 @@
+:root {
+  --bg: #020617;
+  --panel: #020617;
+  --border: #1e293b;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(180deg, #020617, #020617);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.card {
+  background: linear-gradient(180deg, #020617, #020617);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  background: #020617;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.options {
+  margin: 18px 0;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border: none;
+  border-radius: 10px;
+  color: #020617;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.result-box {
+  background: #020617;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.result-box span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.result-box strong {
+  font-size: 1.3rem;
+  color: var(--success);
+}
+
+canvas {
+  margin-top: 20px;
+  background: #020617;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+#mazeCanvas {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+}
